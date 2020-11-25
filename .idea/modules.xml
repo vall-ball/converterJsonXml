@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JSON_-_XML_converter.iml" filepath="$PROJECT_DIR$/.idea/modules/JSON_-_XML_converter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JSON - XML converter/task/JSON_-_XML_converter.JSON_-_XML_converter-task.iml" filepath="$PROJECT_DIR$/.idea/modules/JSON - XML converter/task/JSON_-_XML_converter.JSON_-_XML_converter-task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JSON - XML converter/task/JSON_-_XML_converter.JSON_-_XML_converter-task.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JSON - XML converter/task/JSON_-_XML_converter.JSON_-_XML_converter-task.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JSON - XML converter/task/JSON_-_XML_converter.JSON_-_XML_converter-task.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JSON - XML converter/task/JSON_-_XML_converter.JSON_-_XML_converter-task.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/List multiplicator/JSON_-_XML_converter.Problems-List_multiplicator.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/List multiplicator/JSON_-_XML_converter.Problems-List_multiplicator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/List multiplicator/JSON_-_XML_converter.Problems-List_multiplicator.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/List multiplicator/JSON_-_XML_converter.Problems-List_multiplicator.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/List multiplicator/JSON_-_XML_converter.Problems-List_multiplicator.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/List multiplicator/JSON_-_XML_converter.Problems-List_multiplicator.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Number holder/JSON_-_XML_converter.Problems-Number_holder.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Number holder/JSON_-_XML_converter.Problems-Number_holder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Number holder/JSON_-_XML_converter.Problems-Number_holder.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Number holder/JSON_-_XML_converter.Problems-Number_holder.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Number holder/JSON_-_XML_converter.Problems-Number_holder.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Number holder/JSON_-_XML_converter.Problems-Number_holder.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Packing backeries/JSON_-_XML_converter.Problems-Packing_backeries.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Packing backeries/JSON_-_XML_converter.Problems-Packing_backeries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Packing backeries/JSON_-_XML_converter.Problems-Packing_backeries.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Packing backeries/JSON_-_XML_converter.Problems-Packing_backeries.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Packing backeries/JSON_-_XML_converter.Problems-Packing_backeries.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Packing backeries/JSON_-_XML_converter.Problems-Packing_backeries.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Pets and boxes/JSON_-_XML_converter.Problems-Pets_and_boxes.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Pets and boxes/JSON_-_XML_converter.Problems-Pets_and_boxes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Pets and boxes/JSON_-_XML_converter.Problems-Pets_and_boxes.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Pets and boxes/JSON_-_XML_converter.Problems-Pets_and_boxes.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Pets and boxes/JSON_-_XML_converter.Problems-Pets_and_boxes.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Pets and boxes/JSON_-_XML_converter.Problems-Pets_and_boxes.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Pets in boxes/JSON_-_XML_converter.Problems-Pets_in_boxes.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Pets in boxes/JSON_-_XML_converter.Problems-Pets_in_boxes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Pets in boxes/JSON_-_XML_converter.Problems-Pets_in_boxes.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Pets in boxes/JSON_-_XML_converter.Problems-Pets_in_boxes.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Pets in boxes/JSON_-_XML_converter.Problems-Pets_in_boxes.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Pets in boxes/JSON_-_XML_converter.Problems-Pets_in_boxes.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Photocopiers/JSON_-_XML_converter.Problems-Photocopiers.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Photocopiers/JSON_-_XML_converter.Problems-Photocopiers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Photocopiers/JSON_-_XML_converter.Problems-Photocopiers.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Photocopiers/JSON_-_XML_converter.Problems-Photocopiers.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Photocopiers/JSON_-_XML_converter.Problems-Photocopiers.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Photocopiers/JSON_-_XML_converter.Problems-Photocopiers.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Violator/JSON_-_XML_converter.Problems-Violator.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Violator/JSON_-_XML_converter.Problems-Violator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Violator/JSON_-_XML_converter.Problems-Violator.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Violator/JSON_-_XML_converter.Problems-Violator.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Violator/JSON_-_XML_converter.Problems-Violator.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Violator/JSON_-_XML_converter.Problems-Violator.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Writing a class/JSON_-_XML_converter.Problems-Writing_a_class.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Writing a class/JSON_-_XML_converter.Problems-Writing_a_class.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Writing a class/JSON_-_XML_converter.Problems-Writing_a_class.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Writing a class/JSON_-_XML_converter.Problems-Writing_a_class.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Writing a class/JSON_-_XML_converter.Problems-Writing_a_class.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Writing a class/JSON_-_XML_converter.Problems-Writing_a_class.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/JSON_-_XML_converter.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/JSON_-_XML_converter.util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/JSON_-_XML_converter.util.main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/JSON_-_XML_converter.util.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/JSON_-_XML_converter.util.test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/JSON_-_XML_converter.util.test.iml" />
+    </modules>
+  </component>
+</project>

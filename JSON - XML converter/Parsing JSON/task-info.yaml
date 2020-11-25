@@ -1,0 +1,1071 @@
+type: edu
+custom_name: stage4
+files:
+- name: src/converter/Main.java
+  visible: true
+  text: |
+    package converter;
+
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Hello World!");
+        }
+    }
+  learner_created: false
+- name: test/ConverterTest.java
+  visible: false
+  text: |
+    import converter.Main;
+    import org.hyperskill.hstest.stage.StageTest;
+    import org.hyperskill.hstest.testcase.CheckResult;
+    import org.hyperskill.hstest.testcase.TestCase;
+
+    import java.util.*;
+    import java.util.stream.Collectors;
+
+    class Clue {
+        String answer;
+        String input;
+
+        Clue(String answer, String input) {
+            this.answer = answer.strip();
+            this.input = input.strip();
+        }
+    }
+
+    public class ConverterTest extends StageTest<Clue> {
+        public ConverterTest() throws Exception {
+            super(Main.class);
+        }
+
+        static Map<String, String> allTests;
+
+        static {
+            allTests = new LinkedHashMap<>();
+
+            allTests.put(
+                "{\n" +
+                    "    \"transaction\": {\n" +
+                    "        \"id\": \"6753322\",\n" +
+                    "        \"number\": {\n" +
+                    "            \"@region\": \"Russia\",\n" +
+                    "            \"#number\": \"8-900-000-000\"\n" +
+                    "        },\n" +
+                    "        \"empty1\": null,\n" +
+                    "        \"empty2\": { },\n" +
+                    "        \"empty3\": \"\",\n" +
+                    "        \"inner1\": {\n" +
+                    "            \"inner2\": {\n" +
+                    "                \"inner3\": {\n" +
+                    "                    \"key1\": \"value1\",\n" +
+                    "                    \"key2\": \"value2\"\n" +
+                    "                }\n" +
+                    "            }\n" +
+                    "        },\n" +
+                    "        \"inner4\": {\n" +
+                    "            \"@\": 123,\n" +
+                    "            \"#inner4\": \"value3\"\n" +
+                    "        },\n" +
+                    "        \"inner5\": {\n" +
+                    "            \"@attr1\": 123.456,\n" +
+                    "            \"#inner4\": \"value4\"\n" +
+                    "        },\n" +
+                    "        \"inner6\": {\n" +
+                    "            \"@attr2\": 789.321,\n" +
+                    "            \"#inner6\": \"value5\"\n" +
+                    "        },\n" +
+                    "        \"inner7\": {\n" +
+                    "            \"#inner7\": \"value6\"\n" +
+                    "        },\n" +
+                    "        \"inner8\": {\n" +
+                    "            \"@attr3\": \"value7\"\n" +
+                    "        },\n" +
+                    "        \"inner9\": {\n" +
+                    "            \"@attr4\": \"value8\",\n" +
+                    "            \"#inner9\": \"value9\",\n" +
+                    "            \"something\": \"value10\"\n" +
+                    "        },\n" +
+                    "        \"inner10\": {\n" +
+                    "            \"@attr5\": null,\n" +
+                    "            \"#inner10\": null\n" +
+                    "        },\n" +
+                    "        \"inner11\": {\n" +
+                    "            \"@\": null,\n" +
+                    "            \"#\": null\n" +
+                    "        },\n" +
+                    "        \"inner12\": {\n" +
+                    "            \"@somekey\": \"attrvalue\",\n" +
+                    "            \"#inner12\": null,\n" +
+                    "            \"somekey\": \"keyvalue\",\n" +
+                    "            \"inner12\": \"notnull\"\n" +
+                    "        },\n" +
+                    "        \"\": {\n" +
+                    "            \"#\": null,\n" +
+                    "            \"secret\": \"this won't be converted\"\n" +
+                    "        }\n" +
+                    "    },\n" +
+                    "    \"meta\": {\n" +
+                    "        \"version\": 0.01\n" +
+                    "    }\n" +
+                    "}",
+
+
+                "Element:\n" +
+                    "path = transaction\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, id\n" +
+                    "value = \"6753322\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, number\n" +
+                    "value = \"8-900-000-000\"\n" +
+                    "attributes:\n" +
+                    "region = \"Russia\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, empty1\n" +
+                    "value = null\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, empty2\n" +
+                    "value = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, empty3\n" +
+                    "value = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2, inner3\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2, inner3, key1\n" +
+                    "value = \"value1\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2, inner3, key2\n" +
+                    "value = \"value2\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner4\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner4, inner4\n" +
+                    "value = \"value3\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner5\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner5, attr1\n" +
+                    "value = \"123.456\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner5, inner4\n" +
+                    "value = \"value4\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner6\n" +
+                    "value = \"value5\"\n" +
+                    "attributes:\n" +
+                    "attr2 = \"789.321\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner7\n" +
+                    "value = \"value6\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner8\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner8, attr3\n" +
+                    "value = \"value7\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9, attr4\n" +
+                    "value = \"value8\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9, inner9\n" +
+                    "value = \"value9\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9, something\n" +
+                    "value = \"value10\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner10\n" +
+                    "value = null\n" +
+                    "attributes:\n" +
+                    "attr5 = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner11\n" +
+                    "value = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner12\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner12, somekey\n" +
+                    "value = \"keyvalue\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner12, inner12\n" +
+                    "value = \"notnull\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = meta\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = meta, version\n" +
+                    "value = \"0.01\""
+            );
+
+            allTests.put(
+                "{\n" +
+                    "    \"root1\": {\n" +
+                    "        \"@attr1\": \"val1\",\n" +
+                    "        \"@attr2\": \"val2\",\n" +
+                    "        \"#root1\": {\n" +
+                    "            \"elem1\": {\n" +
+                    "                \"@attr3\": \"val3\",\n" +
+                    "                \"@attr4\": \"val4\",\n" +
+                    "                \"#elem1\": \"Value1\"\n" +
+                    "            },\n" +
+                    "            \"elem2\": {\n" +
+                    "                \"@attr5\": \"val5\",\n" +
+                    "                \"@attr6\": \"val6\",\n" +
+                    "                \"#elem2\": \"Value2\"\n" +
+                    "            }\n" +
+                    "        }\n" +
+                    "    },\n" +
+                    "    \"root2\": {\n" +
+                    "        \"@attr1\": null,\n" +
+                    "        \"@attr2\": \"\",\n" +
+                    "        \"#root2\": null\n" +
+                    "    },\n" +
+                    "    \"root3\": {\n" +
+                    "        \"@attr1\": \"val2\",\n" +
+                    "        \"@attr2\": \"val1\",\n" +
+                    "        \"#root3\": \"\"\n" +
+                    "    },\n" +
+                    "    \"root4\": \"Value4\"\n" +
+                    "}",
+
+                "Element:\n" +
+                    "path = root1\n" +
+                    "attributes:\n" +
+                    "attr1 = \"val1\"\n" +
+                    "attr2 = \"val2\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root1, elem1\n" +
+                    "value = \"Value1\"\n" +
+                    "attributes:\n" +
+                    "attr3 = \"val3\"\n" +
+                    "attr4 = \"val4\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root1, elem2\n" +
+                    "value = \"Value2\"\n" +
+                    "attributes:\n" +
+                    "attr5 = \"val5\"\n" +
+                    "attr6 = \"val6\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root2\n" +
+                    "value = null\n" +
+                    "attributes:\n" +
+                    "attr1 = \"\"\n" +
+                    "attr2 = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root3\n" +
+                    "value = \"\"\n" +
+                    "attributes:\n" +
+                    "attr1 = \"val2\"\n" +
+                    "attr2 = \"val1\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root4\n" +
+                    "value = \"Value4\""
+            );
+
+            allTests.put("{\"root1\":{\"@attr1\":\"val1\"," +
+                "\"@attr2\":\"val2\",\"#root1\":{\"elem1\":{\"" +
+                "@attr3\":\"val3\",\"@attr4\":\"val4\",\"#ele" +
+                "m1\":\"Value1\"},\"elem2\":{\"@attr5\":\"val" +
+                "5\",\"@attr6\":\"val6\",\"#elem2\":\"Value2\"" +
+                "}}},\"root2\":{\"@attr1\":null,\"@attr2\":\"" +
+                "\",\"#root2\":null},\"root3\":{\"@attr1\":\"" +
+                "val2\",\"@attr2\":\"val1\",\"#root3\":\"\"}," +
+                "\"root4\":\"Value4\"}",
+
+
+                "Element:\n" +
+                    "path = root1\n" +
+                    "attributes:\n" +
+                    "attr1 = \"val1\"\n" +
+                    "attr2 = \"val2\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root1, elem1\n" +
+                    "value = \"Value1\"\n" +
+                    "attributes:\n" +
+                    "attr3 = \"val3\"\n" +
+                    "attr4 = \"val4\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root1, elem2\n" +
+                    "value = \"Value2\"\n" +
+                    "attributes:\n" +
+                    "attr5 = \"val5\"\n" +
+                    "attr6 = \"val6\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root2\n" +
+                    "value = null\n" +
+                    "attributes:\n" +
+                    "attr1 = \"\"\n" +
+                    "attr2 = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root3\n" +
+                    "value = \"\"\n" +
+                    "attributes:\n" +
+                    "attr1 = \"val2\"\n" +
+                    "attr2 = \"val1\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = root4\n" +
+                    "value = \"Value4\""
+            );
+
+            allTests.put(
+                "{\n" +
+                    "    \"transaction\": {\n" +
+                    "        \"id\": \"13243547\",\n" +
+                    "        \"number\": {\n" +
+                    "            \"@region\": \"USA\",\n" +
+                    "            \"#number\": \"8-900-000-999\"\n" +
+                    "        },\n" +
+                    "        \"inner1\": {\n" +
+                    "            \"inner2\": {\n" +
+                    "                \"inner3\": {\n" +
+                    "                    \"key1\": \"value1\",\n" +
+                    "                    \"key2\": \"value2\"\n" +
+                    "                }\n" +
+                    "            }\n" +
+                    "        },\n" +
+                    "        \"inner4\": {\n" +
+                    "            \"@\": 123,\n" +
+                    "            \"#inner4\": \"value3\"\n" +
+                    "        },\n" +
+                    "        \"inner5\": {\n" +
+                    "            \"@attr1\": 123.456,\n" +
+                    "            \"#inner4\": \"value4\"\n" +
+                    "        },\n" +
+                    "        \"inner6\": {\n" +
+                    "            \"@attr2\": 789.321,\n" +
+                    "            \"#inner6\": \"value5\"\n" +
+                    "        },\n" +
+                    "        \"inner7\": {\n" +
+                    "            \"#inner7\": \"value6\"\n" +
+                    "        },\n" +
+                    "        \"inner8\": {\n" +
+                    "            \"@attr3\": \"value7\"\n" +
+                    "        },\n" +
+                    "        \"inner9\": {\n" +
+                    "            \"@attr4\": \"value8\",\n" +
+                    "            \"#inner9\": \"value9\",\n" +
+                    "            \"something\": \"value10\"\n" +
+                    "        },\n" +
+                    "        \"inner10\": {\n" +
+                    "            \"@attr5\": null,\n" +
+                    "            \"#inner10\": null\n" +
+                    "        },\n" +
+                    "        \"inner11\": {\n" +
+                    "            \"@\": null,\n" +
+                    "            \"#\": null\n" +
+                    "        },\n" +
+                    "        \"inner12\": {\n" +
+                    "            \"@somekey\": \"attrvalue\",\n" +
+                    "            \"#inner12\": null,\n" +
+                    "            \"somekey\": \"keyvalue\",\n" +
+                    "            \"inner12\": \"notnull\"\n" +
+                    "        },\n" +
+                    "        \"\": {\n" +
+                    "            \"#\": null,\n" +
+                    "            \"secret\": \"this won't be converted\"\n" +
+                    "        }\n" +
+                    "    },\n" +
+                    "    \"meta\": {\n" +
+                    "        \"version\": 0.01\n" +
+                    "    }\n" +
+                    "}",
+
+
+                "Element:\n" +
+                    "path = transaction\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, id\n" +
+                    "value = \"13243547\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, number\n" +
+                    "value = \"8-900-000-999\"\n" +
+                    "attributes:\n" +
+                    "region = \"USA\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2, inner3\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2, inner3, key1\n" +
+                    "value = \"value1\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner1, inner2, inner3, key2\n" +
+                    "value = \"value2\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner4\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner4, inner4\n" +
+                    "value = \"value3\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner5\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner5, attr1\n" +
+                    "value = \"123.456\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner5, inner4\n" +
+                    "value = \"value4\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner6\n" +
+                    "value = \"value5\"\n" +
+                    "attributes:\n" +
+                    "attr2 = \"789.321\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner7\n" +
+                    "value = \"value6\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner8\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner8, attr3\n" +
+                    "value = \"value7\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9, attr4\n" +
+                    "value = \"value8\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9, inner9\n" +
+                    "value = \"value9\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner9, something\n" +
+                    "value = \"value10\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner10\n" +
+                    "value = null\n" +
+                    "attributes:\n" +
+                    "attr5 = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner11\n" +
+                    "value = \"\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner12\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner12, somekey\n" +
+                    "value = \"keyvalue\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = transaction, inner12, inner12\n" +
+                    "value = \"notnull\"\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = meta\n" +
+                    "\n" +
+                    "Element:\n" +
+                    "path = meta, version\n" +
+                    "value = \"0.01\""
+            );
+        }
+
+        @Override
+        public List<TestCase<Clue>> generate() {
+
+            List<TestCase<Clue>> tests = new ArrayList<>();
+
+            for (String input : allTests.keySet()) {
+                String answer = allTests.get(input);
+
+                TestCase<Clue> test = new TestCase<>();
+                test.addFile("test.txt", input);
+                test.setAttach(new Clue(answer, input));
+
+                tests.add(test);
+            }
+
+            return tests;
+        }
+
+        @Override
+        public CheckResult check(String reply, Clue clue) {
+
+            String user = reply.strip();
+            String answer = clue.answer.strip();
+
+            List<String> userLines = user
+                .lines()
+                .map(String::strip)
+                .map(e -> e.replaceAll("\\s+", " "))
+                .filter(e -> e.length() > 0)
+                .collect(Collectors.toList());
+
+            List<String> answerLines = answer
+                .lines()
+                .map(String::strip)
+                .map(e -> e.replaceAll("\\s+", " "))
+                .filter(e -> e.length() > 0)
+                .collect(Collectors.toList());
+
+            if (userLines.size() < answerLines.size()) {
+
+                LinkedHashSet<String> answerSet = new LinkedHashSet<>();
+                answerSet.addAll(answerLines);
+                for (String line : userLines) {
+                    answerSet.remove(line);
+                }
+                if (!answerSet.isEmpty()) {
+                    String notFoundLine = answerSet.stream().findFirst().get();
+                    return new CheckResult(false,
+                        "The following line is not found in output:\n" + notFoundLine);
+                }
+                return new CheckResult(false);
+
+            } else if (userLines.size() > answerLines.size()) {
+
+                LinkedHashSet<String> userSet = new LinkedHashSet<>();
+                userSet.addAll(answerLines);
+                for (String line : answerLines) {
+                    userSet.remove(line);
+                }
+                if (!userSet.isEmpty()) {
+                    String excessLine = userSet.stream().findFirst().get();
+                    return new CheckResult(false,
+                        "The following line is not needed in output:\n" + excessLine);
+                }
+                return new CheckResult(false);
+
+            } else {
+
+                for (int i = 0; i < userLines.size(); i++) {
+
+                    String userLine = userLines.get(i);
+                    String answerLine = answerLines.get(i);
+
+                    if (!userLine.equals(answerLine)) {
+                        return new CheckResult(false,
+                            "The following line was expected:\n" + answerLine + "\n" +
+                                "The following line was given:\n" + userLine);
+                    }
+                }
+
+                return CheckResult.correct();
+            }
+        }
+    }
+  learner_created: false
+- name: src/converter/Parser.java
+  visible: true
+  text: |
+    package converter;
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class Parser {
+
+        ////////////////////////to JSON
+
+        public String findTag(String xml) {
+            return xml.substring(xml.indexOf("<"), xml.indexOf(">") + 1);
+        }
+
+        public String tagContent(String tag) {
+            if (tag.substring(tag.length() - 2, tag.length() - 1).equals("/")) {
+                return tag.substring(1, tag.length() - 2);
+            } else {
+                return tag.substring(1, tag.length() - 1);
+            }
+        }
+
+        public boolean isWaste(String xml) {
+            String tag = findTag(xml);
+            return tag.substring(tag.length() - 2, tag.length() -1).equals("/");
+        }
+
+        public String findContentOfElement(String xml) {
+            if (isWaste(xml)) {
+                return null;
+            } else {
+                return xml.substring(xml.indexOf(">") + 1, xml.lastIndexOf("<"));
+            }
+        }
+
+        public String[] getArrayFromXml(String tagContent) {
+            String withoutGapsAroundEq = tagContent.replaceAll("\\s*=\\s*", "=");
+            String[] array = withoutGapsAroundEq.split("\\s+");
+            return array;
+        }
+
+        public String xmlToJsonparse(String xml) {
+           String[] array = getArrayFromXml(tagContent(findTag(xml)));
+           String nameOfTag = array[0];
+           if (array.length == 1) {
+               return "{\"" + nameOfTag + "\":\"" + findContentOfElement(xml) + "\"}";
+           } else {
+               StringBuilder builder = new StringBuilder();
+               builder.append("{\n\"" + nameOfTag + "\": {\n");
+               for (int i = 1; i < array.length; i++) {
+                   String[] a = array[i].split("=");
+                   builder.append("\"@" + a[0].replaceAll("\"", "") + "\":\"" + a[1].replaceAll("\"", "") + "\",\n");
+               }
+               if (findContentOfElement(xml) == null) {
+                   builder.append("\"#" + nameOfTag + "\":" + null + "\n}\n}");
+               } else {
+                   builder.append("\"#" + nameOfTag + "\":\"" + findContentOfElement(xml) + "\"\n}\n}");
+               }
+               return builder.toString();
+           }
+
+        }
+
+        /////////////////////////////////toXML
+
+        public String getKey(String json) {
+            String s = json.replaceAll(" ", "");
+            return s.substring(s.indexOf("\"") + 1, s.indexOf(":") - 1);
+        }
+
+        public String getValue(String json) {
+            String s = json.replaceAll(" ", "");
+            return s.substring(s.indexOf(":") + 1, s.length() - 1).replaceAll("\"", "");
+        }
+
+        public boolean isDifficultValue(String value) {
+            return (value.substring(0,1).equals("{"));
+        }
+
+        public String jsonToXmlParse(String json) {
+            String key = getKey(json);
+            String value = getValue(json);
+            if (!isDifficultValue(value)) {
+                if (value.equals("null")) {
+                    return "<" + key + "/>";
+                } else {
+                    return "<" + key + ">" + value + "</" + key + ">";
+                }
+            } else {
+                String[] array = getArrayFromJson(json);
+                String[] attr = getAttributes(array);
+                StringBuilder builder = new StringBuilder();
+                builder.append("<" + key + " ");
+                for (String s : attr) {
+                    String[] a = s.split(":");
+                    String b = a[0].trim().replaceAll("\"", "");
+                    String c = a[1].trim().replaceAll("\"", "");;
+                    builder.append(b.substring(1) + "=\"" + c + "\" ");
+                }
+                String difValue = getDifficultValue(array);
+                //System.out.println("difValue =" + difValue);
+                if (difValue == null) {
+                    //System.out.println("difValue nUULLL=" + difValue);
+                    builder.append("/>");
+                    return builder.toString();
+                } else {
+                    builder.append(">" + difValue + "</" + key + ">");
+                    return builder.toString();
+                }
+            }
+        }
+
+        public String[] getArrayFromJson(String json) {
+            String s = json.substring(1, json.length() - 1).replaceAll("\n", "");
+            String[] answer = s.substring(s.indexOf("{") + 1, s.indexOf("}")).split(",");
+            for (int i = 0; i < answer.length; i++) {
+                answer[i] = answer[i].trim();
+            }
+            return answer;
+        }
+
+        public String[] getAttributes(String[] array) {
+            String[] answer = new String[array.length - 1];
+            int i = 0;
+            for (String s : array) {
+                if (s.trim().toCharArray()[1] == '@') {
+                    answer[i] = s.trim();
+                    i++;
+                }
+            }
+                return answer;
+            }
+
+            public String getDifficultValue(String[] array) {
+                String answer = null;
+                for (String s : array) {
+                    if (s.toCharArray()[1] == '#') {
+                        answer = s.substring(s.indexOf(":") + 1).replaceAll("\"", "").trim();
+                        if (answer.equals("null")) {
+                            return null;
+                        }
+                    }
+                }
+                return answer;
+            }
+
+        }
+  learner_created: true
+- name: src/converter/Element.java
+  visible: true
+  text: |
+    package converter;
+
+    import java.util.ArrayList;
+    import java.util.HashMap;
+    import java.util.List;
+    import java.util.Map;
+
+    public class Element {
+        Element parent;
+        boolean isRoot;
+        List<Element> children = new ArrayList<>();
+        String tagName;
+        String content;
+        String[] attributes;
+        String value;
+
+        public void setTagName(String tag) {
+            this.tagName = tag.substring(1, tag.length() - 1);
+        }
+
+        @Override
+        public String toString() {
+            return tagName;
+        }
+
+        public String info() {
+            StringBuilder attr = new StringBuilder();
+            attr.append("Element:\n").append("path = " + pathToString() + "\n");
+            if (value == null) {
+                attr.append("value = null\n");
+            } else if (!isRoot && !value.equals("*")) {
+                    attr.append("value = \"" + value + "\"\n");
+                }
+            if (attributes.length != 0) {
+                attr.append("attributes:\n");
+                for (String s : attrToString()) {
+                    attr.append(s + "\n");
+                }
+            }
+            return attr.toString();
+
+        }
+
+        public boolean hasChildren() {
+            return children != null;
+        }
+
+        public Element getParent() {
+            return parent;
+        }
+
+        public List<Element> path() {
+            Element e = this;
+            List<Element> path = new ArrayList<>();
+            path.add(e);
+            while (!e.isRoot) {
+                e = e.parent;
+                path.add(e);
+            }
+            return path;
+        }
+
+        public String pathToString() {
+            List<Element> path = path();
+            StringBuilder builder = new StringBuilder();
+            for (int i = path.size() - 1; i >= 0; i--) {
+                builder.append(path.get(i)).append(", ");
+            }
+            String answer = builder.toString();
+            return answer.substring(0, answer.length() - 2);
+        }
+
+        public String[] attrToString() {
+            String[] answer = new String[attributes.length];
+            for (int i = 0; i < answer.length; i++) {
+                String[] a = attributes[i].split("=");
+                answer[i] = a[0] + " = " + a[1];
+            }
+            return answer;
+        }
+    }
+  learner_created: true
+- name: src/converter/FileHandler.java
+  visible: true
+  text: |
+    package converter;
+
+    import java.io.File;
+    import java.io.FileNotFoundException;
+    import java.io.FileWriter;
+    import java.io.IOException;
+    import java.util.Scanner;
+
+    public class FileHandler {
+        String fileName;
+
+        FileHandler(String fileName) {
+            this.fileName = fileName;
+        }
+        public String load() throws FileNotFoundException {
+            Scanner scanner = new Scanner(new File(fileName));
+            StringBuilder builder = new StringBuilder();
+            while (scanner.hasNext()) {
+                builder.append(scanner.nextLine());
+            }
+            scanner.close();
+            return builder.toString();
+        }
+
+        public void save(String s) throws IOException {
+            FileWriter writer = new FileWriter("D:\\programming\\1.txt");
+            writer.write(s);
+            writer.close();
+        }
+    }
+  learner_created: true
+- name: src/converter/XMLParser.java
+  visible: true
+  text: |
+    package converter;
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class XMLParser {
+
+        public Element createRootElement(String xml){
+            Element element = new Element();
+            element.isRoot = true;
+            element.tagName = getTagName(getOpeningTag(xml));
+            element.content = getContentOfElement(xml);
+            element.attributes = getAttributes(getOpeningTag(xml));
+            element.children = getChildren(getContentOfElement(xml), element);
+            element.value = getValue(xml);
+            return element;
+        }
+
+        public Element createElement(String xml, Element parent) {
+            Element element = new Element();
+            element.isRoot = false;
+            element.tagName = getTagName(getOpeningTag(xml));
+            element.content = getContentOfElement(xml);
+            element.attributes = getAttributes(getOpeningTag(xml));
+            element.parent = parent;
+            element.children = getChildren(getContentOfElement(xml), element);
+            element.value = getValue(xml);
+            return element;
+        }
+
+        public String prepareXML(String xml) {
+            return xml.replaceAll("\\s*=\\s*", "=").
+                    replaceAll("\n*", "").
+                    replaceAll(">\\s*<", "><").
+                    replaceAll("<\\s*", "<").replaceAll("\\s*>", ">");
+        }
+
+        public String getOpeningTag(String xml) {
+            return xml.substring(xml.indexOf("<"), xml.indexOf(">") + 1);
+        }
+
+        public String getTagName(String tag) {
+            if (tag.contains(" ")) {
+                String[] b = tag.split(" ");
+                return b[0].substring(1);
+            } else {
+                if (withoutClosingTag(tag)) {
+                    return tag.substring(1, tag.length() - 2);
+                } else {
+                    return tag.substring(1, tag.length() - 1);
+                }
+            }
+        }
+
+        public String getClosingTag(String tag) {
+            if (tag.substring(tag.length() - 2, tag.length() - 1).equals("/")) {
+                return null;
+            } else {
+                return "</" + getTagName(tag) + ">";
+            }
+        }
+
+        public String getContentOfElement(String xml) {
+            String openingTag = getOpeningTag(xml);
+            String closingTag = getClosingTag(openingTag);
+            if (closingTag == null) {
+                return null;
+            } else {
+                return xml.substring(xml.indexOf(openingTag) + openingTag.length(), xml.indexOf(closingTag));
+            }
+        }
+
+        public String getValue(String xml) {
+            String openingTag = getOpeningTag(xml);
+            String closingTag = getClosingTag(openingTag);
+            String content = getContentOfElement(xml);
+            if (closingTag == null) {
+                return null;
+            } else if (isContentValue(content)){
+                return xml.substring(xml.indexOf(openingTag) + openingTag.length(), xml.indexOf(closingTag));
+            } else if (content.length() == 0){
+                return "";
+            } else return "*";
+        }
+
+        public boolean withoutClosingTag(String tag) {
+            return tag.substring(tag.length() - 2, tag.length() - 1).equals("/");
+        }
+
+        public List<String> getStringChildren(String contentOfElement) {
+            List<String> children = new ArrayList<>();
+            int begin = 0;
+            while (begin != contentOfElement.length()) {
+                String el = getElement(contentOfElement, begin);
+                children.add(el);
+                begin += el.length();
+            }
+            return children;
+        }
+
+        public String getElement(String xml, int begin) {
+            //System.out.println("begin = " + begin);
+            String area = xml.substring(begin);
+            //System.out.println("area = " + area);
+            String openingTag = getOpeningTag(area);
+            //System.out.println("openingTag = " + openingTag);
+            String contentOfElement = getContentOfElement(area);
+            if (contentOfElement == null) {
+                contentOfElement = "";
+            }
+            //System.out.println("contentOfElement = " + contentOfElement);
+            String closingTag = getClosingTag(openingTag);
+            if (closingTag == null) {
+                closingTag = "";
+            }
+            //System.out.println("closingTag = " + closingTag);
+            String answer = openingTag + contentOfElement + closingTag;
+            //System.out.println(answer);
+            return answer;
+
+        }
+
+        public boolean hasAttributes(String tag) {
+            return tag.contains("=");
+        }
+
+        public String getTagContent(String tag) {
+            if (withoutClosingTag(tag)) {
+                return tag.substring(1, tag.length() - 2);
+            } else {
+                return tag.substring(1, tag.length() - 1);
+            }
+        }
+
+        public String[] getAttributes(String tag) {
+            String tagContent = getTagContent(tag);
+            String[] s = tagContent.split(" ");
+            String[] answer = new String[s.length - 1];
+            for (int i = 0; i < answer.length; i++) {
+                answer[i] = s[i + 1];
+            }
+            return answer;
+        }
+
+        public boolean isContentValue(String content) {
+            if (content == null || content.equals("")) {
+                return true;
+            }
+                return !content.substring(0, 1).equals("<");
+            }
+
+        public List<Element> getChildren(String contentOfElement, Element parent) {
+            if (isContentValue(contentOfElement)) {
+                return null;
+            } else {
+                List<Element> children = new ArrayList<>();
+                for (String s : getStringChildren(contentOfElement)) {
+                    children.add(createElement(s, parent));
+                }
+                return children;
+            }
+        }
+
+        public void getAllElements(List<Element> list, Element element) {
+            list.add(element);
+            if (element.hasChildren()) {
+                for (Element e : element.children) {
+                    getAllElements(list, e);
+                }
+            }
+        }
+
+    }
+  learner_created: true
+- name: src/converter/JsonObject.java
+  visible: true
+  learner_created: true
+- name: src/converter/JSONParser.java
+  visible: true
+  learner_created: true
+feedback_link: https://hyperskill.org/projects/61/stages/332/implement#comment
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/61/stages/332/implement">JetBrains
+    Academy</a>
+  time: Mon, 23 Nov 2020 07:33:34 UTC
+record: 4

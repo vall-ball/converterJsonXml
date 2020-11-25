@@ -1,0 +1,23 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    /**
+     * Class to work with
+     */
+    class Violator {
+
+        public static List<Box<? extends Bakery>> defraud() {
+            // Add implementation here
+        }
+
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/4894#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/4894#comment">JetBrains
+    Academy</a></html>
+  time: Mon, 23 Nov 2020 12:38:46 UTC
+record: -1
